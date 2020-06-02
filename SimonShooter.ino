@@ -28,13 +28,13 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
 
 
 enum servoPositions {
-  SERVO_TOP= 115, // topmost
-  SERVO_LEFT = 168, // rightmost
-  SERVO_RIGHT = 70 // leftmost
+  SERVO_TOP= 115, 
+  SERVO_LEFT = 168, 
+  SERVO_RIGHT = 70 
 };
 
 
-Servo myservo;  // create servo object to control a servo
+Servo myservo;  
 int pos = SERVO_TOP;    // variable to store the servo position
 int servoDirection = 0;
 
