@@ -26,9 +26,13 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
   OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 
-#define SERVO_TOP 115
-#define SERVO_LEFT 168
-#define SERVO_RIGHT 70
+
+enum servoPositions {
+  SERVO_TOP= 115, // topmost
+  SERVO_LEFT = 168, // rightmost
+  SERVO_RIGHT = 70 // leftmost
+};
+
 
 Servo myservo;  // create servo object to control a servo
 int pos = SERVO_TOP;    // variable to store the servo position
@@ -249,7 +253,7 @@ void moveServo( ) {
   
 }
 
-void sweepMove(int target) {
+void sweepMove(servoPositions target) {
   if ( target == SERVO_RIGHT ) {
     for ( pos = pos - 1; pos >= SERVO_RIGHT; pos -= 1) {
       myservo.write(pos);
