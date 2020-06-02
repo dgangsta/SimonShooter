@@ -195,7 +195,7 @@ void setup() {
 void loop() {
 
   if (digitalRead(KNOCK_PIN)) {       // knock detected?
-    performNerfHit(); // Make sure there is a delay
+    performNerfHit(); 
   }
   else if (!digitalRead(RESET_PIN)) {    // reset button pressed
     performResetHit();
@@ -204,17 +204,17 @@ void loop() {
 }
 
 void performNerfHit() {
-    score++;
-    drawBitmap(powPic);
-    delay(2000);
-    moveServo();
-    displayScore(score, 0);
-    delay(1000);
-    if ( score == MAX_SCORE ) {
-      delay(2000); 
-      performWinner();
-      performResetHit();
-    }
+  score++;
+  drawBitmap(powPic);
+  delay(2000);
+  moveServo();
+  displayScore(score, 0);
+  delay(1000);
+  if ( score == MAX_SCORE ) {
+    delay(2000); 
+    performWinner();
+    performResetHit();
+  }
 }
 
 void performResetHit() {
@@ -240,16 +240,11 @@ void moveServo( ) {
          servoDirection = 1;
       } else if ( servoDirection == -1 ) {
          sweepMove(SERVO_RIGHT);
-         //pos = SERVO_RIGHT;
       } else if ( servoDirection == 1 ) {
          sweepMove(SERVO_LEFT);
-         
-         //pos = SERVO_LEFT;
       }
   } else {
      sweepMove(SERVO_TOP);
-     //pos = SERVO_TOP;
-     //servoDirection = servoDirection * -1;
   }
   
 }
@@ -273,7 +268,6 @@ void sweepMove(int target) {
       delay(15);
       pos += servoDirection;
     }
-    //servoDirection = servoDirection * -1;
   }
 }
 
